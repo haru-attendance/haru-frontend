@@ -2,6 +2,7 @@
 import { Button, Divider, Flex, Input } from 'antd';
 import { buttonContainer, container, inputContainer } from './page.css';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -14,7 +15,7 @@ export default function Home() {
         <Input.Password placeholder="패스워드" size="large" />
       </section>
       <Button type="primary" size="large">
-        로그인
+        <Link href="/group">로그인</Link>
       </Button>
       <div className={buttonContainer}>
         <Button type="text">이메일 찾기</Button>
