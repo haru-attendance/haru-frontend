@@ -11,7 +11,7 @@ const data = ['2024.01.23', '2024.01.24', '2024.01.25', '2024.01.26'];
 
 const Group = ({}: Props) => {
   return (
-    <Layout>
+    <Layout style={{ height: '100vh' }}>
       <Header style={{ background: 'white', padding: '1rem 2rem' }}>
         <Flex justify="space-between" align="center">
           <Flex align="center" gap="0.5rem">
@@ -33,7 +33,22 @@ const Group = ({}: Props) => {
           ))}
         </div>
       </Content>
-      <Footer>네비게이션</Footer>
+      <Footer style={{ marginBottom: '0px', padding: '0.8rem 1.2rem' }}>
+        <Flex justify="space-between">
+          <Flex vertical align="center" gap="0.4rem">
+            <Image src="/attendanceHome.svg" alt="출석기록" width={22} height={22} />
+            <p>출석기록</p>
+          </Flex>
+          <Flex vertical align="center" gap="0.4rem">
+            <Image src="/attendanceCheck.svg" alt="출석체크" width={22} height={22} />
+            <p>출석체크</p>
+          </Flex>
+          <Flex vertical align="center" gap="0.4rem">
+            <Image src="/member.svg" alt="구성원" width={22} height={22} />
+            <p>구성원</p>
+          </Flex>
+        </Flex>
+      </Footer>
     </Layout>
   );
 };
