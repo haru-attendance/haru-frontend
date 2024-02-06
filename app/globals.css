@@ -14,7 +14,8 @@
 
 html,
 body {
-  max-width: 100vw;
+  margin: 0 auto;
+  max-width: 768px;
   overflow-x: hidden;
 }
 
@@ -27,4 +28,11 @@ ol,
 ul,
 li {
   list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
