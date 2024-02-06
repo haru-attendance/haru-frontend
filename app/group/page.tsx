@@ -1,20 +1,31 @@
 'use client';
-import { Button, Divider, Flex, Layout, List, Typography } from 'antd';
+import { Button, Divider, Drawer, Flex, Layout, List, Typography } from 'antd';
 import { Content, Footer, Header } from 'antd/es/layout/layout';
 import Image from 'next/image';
 import Card from './components/card/card';
 import { vars } from '../styles/theme.css';
+import { useState } from 'react';
 
 type Props = {};
 
 const data = ['2024.01.23', '2024.01.24', '2024.01.25', '2024.01.26'];
 
 const Group = ({}: Props) => {
+  const [open, setOpen] = useState(false);
+
+  const closeDrawer = () => {
+    setOpen(false);
+  };
+
+  const openDrawer = () => {
+    setOpen(true);
+  };
+
   return (
-    <Layout style={{ height: '100vh' }}>
+    <Layout style={{ height: '100vh', position: 'relative' }}>
       <Header style={{ background: 'white', padding: '1rem 2rem' }}>
         <Flex justify="space-between" align="center">
-          <Flex align="center" gap="0.5rem">
+          <Flex align="center" gap="0.5rem" onClick={openDrawer}>
             <Image src="/logo-check.svg" alt="logo-check" width={32} height={24} />
             <Typography.Text strong style={{ fontSize: '1.1rem' }}>
               A Group
@@ -49,6 +60,37 @@ const Group = ({}: Props) => {
           </Flex>
         </Flex>
       </Footer>
+
+      <Drawer
+        title="Club"
+        placement="left"
+        width={320}
+        closable={true}
+        onClose={closeDrawer}
+        open={open}
+        key="Club Drawer"
+        getContainer={false}
+        style={{ borderRadius: '0 0.5rem 0.5rem 0' }}
+      >
+        <Flex vertical justify="space-between" style={{ height: '100%' }}>
+          <Flex vertical gap="0.5rem">
+            {['A Club', 'B Club', 'C Club'].map((item) => (
+              <Flex gap="0.5rem" align="center">
+                <Image src="/logo-check.svg" alt="logo-check" width={32} height={24} />
+                <Typography.Text strong>{item}</Typography.Text>
+              </Flex>
+            ))}
+          </Flex>
+          <Flex vertical gap="0.5rem" style={{ marginBottom: '0px' }}>
+            <Button type="primary" size="large">
+              그룹 생성
+            </Button>
+            <Button type="primary" size="large">
+              환경 설정
+            </Button>
+          </Flex>
+        </Flex>
+      </Drawer>
     </Layout>
   );
 };
