@@ -17,6 +17,7 @@ body {
   margin: 0 auto;
   max-width: 768px;
   overflow-x: hidden;
+  font-size: 10px;
 }
 
 a {
