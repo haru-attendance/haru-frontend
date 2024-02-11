@@ -27,7 +27,7 @@ const Group = ({}: Props) => {
         <Flex justify="space-between" align="center">
           <Flex align="center" gap="0.5rem" onClick={openDrawer}>
             <Image src="/logo-check.svg" alt="logo-check" width={32} height={24} />
-            <Typography.Text strong style={{ fontSize: '1.1rem' }}>
+            <Typography.Text strong style={{ fontSize: '1.8rem' }}>
               A Group
             </Typography.Text>
           </Flex>
