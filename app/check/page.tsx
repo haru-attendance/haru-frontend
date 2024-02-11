@@ -61,7 +61,7 @@ const page = ({}: Props) => {
       /> */}
       <button
         style={{
-          padding: '1rem',
+          padding: '1.5rem 2rem',
           borderRadius: '50px',
           position: 'fixed',
           bottom: '10%',
