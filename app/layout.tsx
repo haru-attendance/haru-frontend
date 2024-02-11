@@ -6,7 +6,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: '하루출석부',
+  title: '나도여기',
   description: '한눈에 보는 출석부',
 };
 
