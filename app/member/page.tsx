@@ -1,34 +1,23 @@
 'use client';
-import { Button, Divider, Drawer, Flex, Layout, List, Typography } from 'antd';
+import { Flex, Layout, Typography } from 'antd';
 import { Content, Footer, Header } from 'antd/es/layout/layout';
 import Image from 'next/image';
-import Card from './components/card/card';
 import { vars } from '../styles/theme.css';
-import { useState } from 'react';
+import Card from './components/card/card';
 
 type Props = {};
 
-const data = ['2024.01.23', '2024.01.24', '2024.01.25', '2024.01.26'];
+const data = ['조은찬', '김민수', '김민지', '에코'];
 
-const Group = ({}: Props) => {
-  const [open, setOpen] = useState(false);
-
-  const closeDrawer = () => {
-    setOpen(false);
-  };
-
-  const openDrawer = () => {
-    setOpen(true);
-  };
-
+const page = ({}: Props) => {
   return (
     <Layout style={{ height: '100vh', position: 'relative' }}>
       <Header style={{ background: 'white', padding: '1rem 2rem' }}>
         <Flex justify="space-between" align="center">
-          <Flex align="center" gap="0.5rem" onClick={openDrawer}>
+          <Flex align="center" gap="0.5rem">
             <Image src="/logo-check.svg" alt="logo-check" width={32} height={24} />
             <Typography.Text strong style={{ fontSize: '1.8rem' }}>
-              A Group
+              구성원 관리
             </Typography.Text>
           </Flex>
           <button>
@@ -37,10 +26,10 @@ const Group = ({}: Props) => {
         </Flex>
       </Header>
       <Content style={{ padding: '1rem 2rem', backgroundColor: vars.color.gray1 }}>
-        <Typography.Text strong>출석부 기록</Typography.Text>
+        <Typography.Text strong>구성원 목록</Typography.Text>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '1rem' }}>
           {data.map((item) => (
-            <Card key={item} date={item} />
+            <Card key={item} name={item} />
           ))}
         </div>
       </Content>
@@ -60,39 +49,8 @@ const Group = ({}: Props) => {
           </Flex>
         </Flex>
       </Footer>
-
-      <Drawer
-        title="Club"
-        placement="left"
-        width={320}
-        closable={true}
-        onClose={closeDrawer}
-        open={open}
-        key="Club Drawer"
-        getContainer={false}
-        style={{ borderRadius: '0 0.5rem 0.5rem 0' }}
-      >
-        <Flex vertical justify="space-between" style={{ height: '100%' }}>
-          <Flex vertical gap="0.5rem">
-            {['A Club', 'B Club', 'C Club'].map((item) => (
-              <Flex gap="0.5rem" align="center" key={item}>
-                <Image src="/logo-check.svg" alt="logo-check" width={32} height={24} />
-                <Typography.Text strong>{item}</Typography.Text>
-              </Flex>
-            ))}
-          </Flex>
-          <Flex vertical gap="0.5rem" style={{ marginBottom: '0px' }}>
-            <Button type="primary" size="large">
-              그룹 생성
-            </Button>
-            <Button type="primary" size="large">
-              환경 설정
-            </Button>
-          </Flex>
-        </Flex>
-      </Drawer>
     </Layout>
   );
 };
 
-export default Group;
+export default page;
