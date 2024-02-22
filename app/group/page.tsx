@@ -75,7 +75,7 @@ const Group = ({}: Props) => {
         <Flex vertical justify="space-between" style={{ height: '100%' }}>
           <Flex vertical gap="0.5rem">
             {['A Club', 'B Club', 'C Club'].map((item) => (
-              <Flex gap="0.5rem" align="center">
+              <Flex gap="0.5rem" align="center" key={item}>
                 <Image src="/logo-check.svg" alt="logo-check" width={32} height={24} />
                 <Typography.Text strong>{item}</Typography.Text>
               </Flex>
